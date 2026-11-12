@@ -29,6 +29,21 @@ built for them. It began as a stock Xcode app template, which was the wrong
 shape entirely, so the GUI was stripped and the project restarted from the
 ground as infrastructure.
 
+## The Thesis
+
+Integration and processing move down into the data layer.
+
+- **One rail.** Snowflake becomes for the database layer what MuleSoft is for
+  application integration: the one place everything connects through. TribeOS
+  therefore speaks to one system, through one SDK.
+- **No GPU estate to run.** The long-term bet is that builders should not need
+  to own and operate their own GPU infrastructure to do AI work. Processing is
+  pushed down to the data layer and bought as a service.
+
+This is a thesis, not a proven fact. Today Snowflake's own AI features run on
+GPUs inside Snowflake, so the bet is about who has to own that hardware, not
+about GPUs disappearing.
+
 ## Key Objective / Problem to Solve
 
 Give infrastructure builders a foundation they can trust on sight.
@@ -73,19 +88,26 @@ order.
 
 ## The Four Connections
 
-Everything in TribeOS connects to these four, and only these four.
+Everything in TribeOS connects to these four, and only these four, and all of
+it runs through Snowflake. There is one SDK.
 
-| Role | What it is | Connection |
-|---|---|---|
-| **Rails** | What the data runs on | Snowflake |
-| **Governance** | Who is allowed to do what, and the record of it | Cisco |
-| **Pipes** | What carries the work from place to place | Red Hat, IBM |
+| Role | What it is | Connection | How TribeOS reaches it |
+|---|---|---|---|
+| **Rails** | What the data runs on | Snowflake | Directly |
+| **Governance** | Who is allowed to do what, and the record of it | Cisco | Through Snowflake |
+| **Pipes** | What carries the work from place to place | Red Hat, IBM | Through Snowflake |
 
-The list is closed. Nothing else gets wired in. Adding a fifth means changing
-this brief first.
+The list is closed. Nothing else gets wired in, and nothing bypasses the
+rails. Adding a fifth, or a second direct connection, means changing this
+brief first.
 
-Status: the four are declared in code (`tribeos connections`) and guarded by a
-test. None is wired to a live service yet.
+The one SDK is TribeOS's own Snowflake client, to be written in Swift on the
+foundation packages against Snowflake's SQL REST API (Snowflake publishes no
+Swift SDK).
+
+Status: the four and their paths are declared in code (`tribeos connections`)
+and guarded by tests. Nothing is wired to a live service yet, and how Cisco,
+Red Hat and IBM are bridged into Snowflake is still to be designed.
 
 ## Promise of Brand
 
@@ -212,12 +234,13 @@ Scripts/install.sh
 | Command | What it does |
 |---|---|
 | `tribeos` or `tribeos doctor` | Runs a live check of all eleven packages and prints the result. Exits non-zero if any fail. |
-| `tribeos connections` | Lists the four connections by role. |
+| `tribeos connections` | Lists the four connections by role and how each is reached. |
 | `tribeos script <file>` | Runs an AppleScript file (macOS only). Try `tribeos script Scripts/hello.applescript`. |
 | `tribeos --version` | Prints the version. |
 
 ## Outline
 
 1. **Foundation** (this build): package, eleven dependencies, `tribeos doctor`, the four connections declared, AppleScript bridge, install script.
-2. **Connections**: wire the four for real, one at a time: Snowflake (rails), Cisco (governance), Red Hat and IBM (pipes).
-3. **Surface**: anything visible comes last, on top of `TribeOSCore`, built to the design law.
+2. **The one SDK**: a Swift Snowflake client in `TribeOSCore`, proven against a live account from the terminal.
+3. **Through the rails**: bring governance (Cisco) and pipes (Red Hat, IBM) in through Snowflake.
+4. **Surface**: anything visible comes last, on top of `TribeOSCore`, built to the design law.

@@ -5,7 +5,7 @@ public enum Role: String, Sendable, CaseIterable {
     case pipes
 }
 
-/// The only systems TribeOS connects to. The list is closed on purpose:
+/// The only systems TribeOS connects to, all of them by way of Snowflake. The list is closed on purpose:
 /// adding a connection means changing the README first, then this enum.
 public enum Connection: String, Sendable, CaseIterable {
     case snowflake
@@ -28,6 +28,12 @@ public enum Connection: String, Sendable, CaseIterable {
         case .cisco: .governance
         case .redHat, .ibm: .pipes
         }
+    }
+
+    /// TribeOS speaks to Snowflake directly, through one SDK. Every other
+    /// connection is reached through Snowflake, never on its own.
+    public var reachedThrough: Connection? {
+        self == .snowflake ? nil : .snowflake
     }
 
     public static func serving(_ role: Role) -> [Connection] {

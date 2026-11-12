@@ -23,6 +23,12 @@ func connectionsAreClosed() {
     #expect(Connection.serving(.pipes) == [.redHat, .ibm])
 }
 
+@Test("Snowflake is the only direct connection; the rest go through it")
+func everythingRunsThroughSnowflake() {
+    #expect(Connection.allCases.filter { $0.reachedThrough == nil } == [.snowflake])
+    #expect(Connection.allCases.filter { $0 != .snowflake }.allSatisfy { $0.reachedThrough == .snowflake })
+}
+
 #if !os(macOS)
 @Test("AppleScript refuses to run off macOS")
 func appleScriptNeedsMacOS() {

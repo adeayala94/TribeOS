@@ -51,11 +51,17 @@ struct Connections: ParsableCommand {
 
     func run() {
         let width = Role.allCases.map(\.rawValue.count).max() ?? 0
-        let lines = Role.allCases.map { role in
-            let names = Connection.serving(role).map(\.name).joined(separator: ", ")
-            return "\(role.rawValue.padding(toLength: width, withPad: " ", startingAt: 0))  \(names)"
+        let rows = Role.allCases.map { role in
+            let members = Connection.serving(role)
+            let path = members.first?.reachedThrough.map { "through \($0.name)" } ?? "direct"
+            return (role.rawValue, members.map(\.name).joined(separator: ", "), path)
         }
-        let footer = "\(Connection.allCases.count) connections, nothing else"
+        let nameWidth = rows.map(\.1.count).max() ?? 0
+        let lines = rows.map { role, names, path in
+            "\(role.padding(toLength: width, withPad: " ", startingAt: 0))  "
+                + "\(names.padding(toLength: nameWidth, withPad: " ", startingAt: 0))  \(path)"
+        }
+        let footer = "one SDK, \(Connection.allCases.count) connections"
         print(Panel.render(title: "TribeOS connects to", lines: lines, footer: footer))
     }
 }
