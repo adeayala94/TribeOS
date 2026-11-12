@@ -8,7 +8,7 @@ struct TribeOS: AsyncParsableCommand {
         commandName: "tribeos",
         abstract: "The TribeOS foundation, in the terminal.",
         version: TribeOSFoundation.version,
-        subcommands: [Doctor.self, Script.self],
+        subcommands: [Doctor.self, Connections.self, Script.self],
         defaultSubcommand: Doctor.self
     )
 }
@@ -41,6 +41,22 @@ struct Doctor: AsyncParsableCommand {
         }
         print(Panel.render(title: "TribeOS \(TribeOSFoundation.version)", lines: lines, footer: summary))
         if failures > 0 { throw ExitCode.failure }
+    }
+}
+
+struct Connections: ParsableCommand {
+    static let configuration = CommandConfiguration(
+        abstract: "List the only systems TribeOS connects to, by role."
+    )
+
+    func run() {
+        let width = Role.allCases.map(\.rawValue.count).max() ?? 0
+        let lines = Role.allCases.map { role in
+            let names = Connection.serving(role).map(\.name).joined(separator: ", ")
+            return "\(role.rawValue.padding(toLength: width, withPad: " ", startingAt: 0))  \(names)"
+        }
+        let footer = "\(Connection.allCases.count) connections, nothing else"
+        print(Panel.render(title: "TribeOS connects to", lines: lines, footer: footer))
     }
 }
 

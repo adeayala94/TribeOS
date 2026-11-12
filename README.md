@@ -71,6 +71,22 @@ anything that needs a GUI to operate.
 looked finished and were hollow. They are tired of chaos and are looking for
 order.
 
+## The Four Connections
+
+Everything in TribeOS connects to these four, and only these four.
+
+| Role | What it is | Connection |
+|---|---|---|
+| **Rails** | What the data runs on | Snowflake |
+| **Governance** | Who is allowed to do what, and the record of it | Cisco |
+| **Pipes** | What carries the work from place to place | Red Hat, IBM |
+
+The list is closed. Nothing else gets wired in. Adding a fifth means changing
+this brief first.
+
+Status: the four are declared in code (`tribeos connections`) and guarded by a
+test. None is wired to a live service yet.
+
 ## Promise of Brand
 
 **Be the soil. Grow redwoods.**
@@ -150,11 +166,12 @@ TribeOS/
 ├── Sources/
 │   ├── TribeOSCore/          the foundation library
 │   │   ├── FoundationChecks.swift   one live check per package
+│   │   ├── Connections.swift        the four connections and their roles
 │   │   └── AppleScript.swift        runs AppleScript through osascript
 │   └── tribeos/              the terminal command
 │       └── TribeOS.swift
 ├── Tests/
-│   └── TribeOSCoreTests/     tests for every check and the AppleScript bridge
+│   └── TribeOSCoreTests/     tests for the checks, connections and AppleScript bridge
 └── Scripts/
     ├── install.sh            build and install the tribeos command
     └── hello.applescript     smoke test for the AppleScript bridge
@@ -195,11 +212,12 @@ Scripts/install.sh
 | Command | What it does |
 |---|---|
 | `tribeos` or `tribeos doctor` | Runs a live check of all eleven packages and prints the result. Exits non-zero if any fail. |
+| `tribeos connections` | Lists the four connections by role. |
 | `tribeos script <file>` | Runs an AppleScript file (macOS only). Try `tribeos script Scripts/hello.applescript`. |
 | `tribeos --version` | Prints the version. |
 
 ## Outline
 
-1. **Foundation** (this build): package, eleven dependencies, `tribeos doctor`, AppleScript bridge, install script.
-2. **Infrastructure layers**: the services stewards need, built in `TribeOSCore` and exposed through the terminal.
+1. **Foundation** (this build): package, eleven dependencies, `tribeos doctor`, the four connections declared, AppleScript bridge, install script.
+2. **Connections**: wire the four for real, one at a time: Snowflake (rails), Cisco (governance), Red Hat and IBM (pipes).
 3. **Surface**: anything visible comes last, on top of `TribeOSCore`, built to the design law.

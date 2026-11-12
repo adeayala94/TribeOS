@@ -15,6 +15,14 @@ func foundationIsComplete() {
     #expect(Set(packages).count == packages.count)
 }
 
+@Test("TribeOS connects to exactly four systems in three roles")
+func connectionsAreClosed() {
+    #expect(Connection.allCases.map(\.name) == ["Snowflake", "Cisco", "Red Hat", "IBM"])
+    #expect(Connection.serving(.rails) == [.snowflake])
+    #expect(Connection.serving(.governance) == [.cisco])
+    #expect(Connection.serving(.pipes) == [.redHat, .ibm])
+}
+
 #if !os(macOS)
 @Test("AppleScript refuses to run off macOS")
 func appleScriptNeedsMacOS() {
