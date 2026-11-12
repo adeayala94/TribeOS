@@ -5,7 +5,7 @@
 > by updating it here, and the code follows.
 
 **TribeOS is infrastructure, not an app.** It is the bottom of the iceberg:
-the foundation for business on the Mac.
+the one foundation under both iOS and macOS.
 
 > **Draft.** Only the foundation exists today. Everything described as growing
 > on top of it is the vision, not a shipped product.
@@ -14,7 +14,7 @@ the foundation for business on the Mac.
 
 # PROJECT BRIEF
 
-**Project:** TribeOS — the foundation for business on the Mac
+**Project:** TribeOS — the foundation under iOS and macOS
 
 ## Background
 
@@ -60,8 +60,9 @@ Apple TV, Vision and Home are out until they relaunch.
 The device line-up is proposed. iMac as a touch Mac, MacPad and MacPad Touch
 are not existing Apple products.
 
-TribeOS sits under the macOS side, because that is where apps have to talk and
-so where a shared foundation is needed.
+TribeOS sits under both. On iOS it is the base each stand-alone app is built
+on. On macOS it is also what lets the apps talk to each other. One foundation,
+two platforms.
 
 ## The Three Suites
 
@@ -279,7 +280,9 @@ TribeOS/
 ## Build, Run, Install
 
 Requires Swift 6.0 or later, on macOS 15+ (Xcode 16+) or Linux. The
-AppleScript bridge is macOS only. All commands run in a terminal from the
+`TribeOSCore` library also declares iOS 18+ so iOS apps can build on it; the
+`tribeos` command and the AppleScript bridge are macOS only. The iOS build has
+not been tested yet. All commands run in a terminal from the
 project folder.
 
 Build:
