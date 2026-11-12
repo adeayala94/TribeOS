@@ -5,29 +5,45 @@
 > by updating it here, and the code follows.
 
 **TribeOS is infrastructure, not an app.** It is the bottom of the iceberg:
-the part nobody sees and everything rests on.
+the foundation for business on the Mac.
+
+> **Draft.** Only the foundation exists today. Everything described as growing
+> on top of it is the vision, not a shipped product.
 
 ---
 
 # PROJECT BRIEF
 
-**Project:** TribeOS — infrastructure foundation
+**Project:** TribeOS — the foundation for business on the Mac
 
 ## Background
 
-The next generation of AI is being built by product companies such as Notion,
-Airtable and Claude. These are the **redwoods**: tall, visible, and only as
-strong as the ground they grow in.
+Business software runs on Windows-first suites. A company that runs on Macs
+has good machines and good documents (iWork) but no business stack of its
+own: nowhere to buy and deploy business software built for the Mac, no
+ERP-class suite that feels native, and a developer platform that has not kept
+pace with how software is now built and shared.
 
-The ground is the platform companies: Apple, AWS, OCI, GCP, Azure, Red Hat/IBM
-and Cisco. They are the **soil and the stewards**. Their job is not to be the
-tree but to make trees possible.
+Closing that gap is not one app. It is a forest. The products are the
+**redwoods**: tall, visible, and only as strong as the ground they grow in.
+The people who build for Apple platforms are the **soil and the stewards**.
 
-Most tooling is built for the top of the iceberg: apps, dashboards, things
-with a screen. Very little is built for the builders underneath. TribeOS is
-built for them. It began as a stock Xcode app template, which was the wrong
-shape entirely, so the GUI was stripped and the project restarted from the
-ground as infrastructure.
+TribeOS is the ground. It began as a stock Xcode app template, which was the
+wrong shape entirely, so the GUI was stripped and the project restarted from
+the bottom as infrastructure.
+
+## What Grows on It
+
+The top of the iceberg. TribeOS is the foundation for all five. None is built
+yet.
+
+| What | What it means | Status |
+|---|---|---|
+| **A B2B App Store for macOS** | One place for businesses to find, buy and deploy Mac business software | Vision |
+| **A Dynamics 365-class suite for Mac** | TribeOS (the foundation) + SpiralERP (the business records) + iWork (the documents) | Vision. SpiralERP exists separately and is not yet connected. |
+| **A GitHub for Apple** | Apple's developer platform as the home for code and collaboration, not only for certificates and submissions | Vision |
+| **A revitalised Xcode** | The tool all of the above is built with, made worth living in again | Vision |
+| **App Store Connect for iOS builders, Business Essentials for macOS** | The two ends of the same platform: publishing for the people who build, device and app management for the businesses that run | Vision |
 
 ## The Thesis
 
@@ -46,7 +62,8 @@ about GPUs disappearing.
 
 ## Key Objective / Problem to Solve
 
-Give infrastructure builders a foundation they can trust on sight.
+Give Apple builders a foundation they can trust on sight, so that business
+software for the Mac can be built on one base instead of many.
 
 Measured by: a builder goes from a fresh clone to a passing foundation check
 (`tribeos doctor`, every package proven live) with one command, and can read
@@ -54,42 +71,40 @@ the whole foundation, source and brief, in one sitting.
 
 ## Target
 
-**Who:** builders at Apple, AWS, OCI, GCP, Azure, Red Hat/IBM and Cisco.
-Platform, systems and infrastructure engineers and architects: the people who
-build what others build on.
+**Who:** Apple builders first. Mac and iOS developers, and the platform teams
+who build what those developers build on.
 
-**Behavior:** They live in the terminal. They read source before they read
-marketing. They pin versions, run the tests themselves, and judge a project
-by whether it builds clean the first time. They are analytical and they
-automate anything they do twice.
+**Behavior:** They work in Xcode and the terminal. They write Swift, read
+source before marketing, and judge a project by whether it builds clean the
+first time. They ship through App Store Connect and know its friction by
+heart.
 
-**Attitudes:** Infrastructure should be quiet, ordered and boring in the best
-sense. Stewardship matters more than visibility: their success is measured by
-what grows on top of their work, not by their own name on it. They distrust
-anything that needs a GUI to operate.
+**Attitudes:** The Mac deserves first-class business software, not ports.
+Native matters. Stewardship matters more than visibility: their success is
+measured by what grows on top of their work.
 
 **Misperceptions:**
 - That a Swift project must be an app. TribeOS has no GUI in its foundation.
-- That AI infrastructure means models and GPUs. It also means the plain,
-  dependable layers underneath: concurrency, networking, cryptography,
-  certificates, data structures.
+- That the Mac is for creative work and business runs elsewhere.
+- That an "App Store" means consumer apps. The gap is business software.
 - That the name "OS" means an operating system to install. It is a foundation
   to build on.
 
 **Wants and needs:**
-- *Physical:* a small, legible, dependency-pinned foundation that builds,
-  tests and installs from the terminal with no ceremony.
+- *Physical:* a small, legible, dependency-pinned Swift foundation that
+  builds, tests and installs from the terminal with no ceremony.
 - *Emotional:* confidence in what is underneath them, and pride in being the
   soil rather than the tree.
 
-**Emotional state:** Wary. They have inherited too many foundations that
-looked finished and were hollow. They are tired of chaos and are looking for
-order.
+**Emotional state:** Loyal and impatient. They believe in the platform and
+are tired of waiting for its business and developer tooling to catch up.
+They are wary of foundations that look finished and are hollow.
 
 ## The Four Connections
 
 Everything in TribeOS connects to these four, and only these four, and all of
-it runs through Snowflake. There is one SDK.
+it runs through Snowflake. There is one SDK. These are what the business
+software on top runs on.
 
 | Role | What it is | Connection | How TribeOS reaches it |
 |---|---|---|---|
@@ -117,9 +132,9 @@ the whole thing equals zero.
 
 | Element | The question | Where TribeOS stands |
 |---|---|---|
-| **Business Issue** | What time-bound, financial metric is the buyer measured on? | Hypothesis only: the cost of running AI on owned GPU infrastructure, and the cost of integrating many systems through many SDKs. Not yet confirmed by any buyer, and not yet a number. |
-| **Problems** | What stops them resolving it? | Every product connects to many systems through many SDKs. AI work is assumed to need a GPU estate of one's own. Foundations look finished and turn out hollow. |
-| **Solution** (differentiated) | What do they believe will fix it, that only we do well? | One rail, one SDK: everything runs through Snowflake. A closed list of four connections. A foundation where every part is proven live. |
+| **Business Issue** | What time-bound, financial metric is the buyer measured on? | Hypothesis only: the cost of running a Mac-based business on software built for another platform, and of integrating many systems through many SDKs. Not yet confirmed by any buyer, and not yet a number. |
+| **Problems** | What stops them resolving it? | No business suite native to the Mac. No single place to buy and deploy Mac business software. Every product connects to many systems through many SDKs. |
+| **Solution** (differentiated) | What do they believe will fix it, that only we do well? | One foundation under the whole stack. One rail, one SDK. A closed list of four connections. Every part proven live. |
 | **Value** | Is it worth it, to the business and to the person? | Business value: not quantified. It needs a real buyer's numbers. Personal value: being the steward whose ground the redwoods grow in. |
 | **Power** | Who can approve or veto? | Not identified. The brief's target is the builders, who are users and possible sponsors, not necessarily the people who sign. |
 | **Plan** | What are the agreed steps to value realized? | None. Nothing has been agreed with any buyer. |
@@ -130,7 +145,7 @@ Power and Plan are open, so the formula currently equals zero.
 Open questions to take to a buyer:
 
 - What is your number one priority this year, and what stands in its way?
-- What does your GPU infrastructure cost you today, and who owns that number?
+- What does running your business on Macs cost you in software that was not built for them?
 - How many systems does a new product have to integrate with, and through how many SDKs?
 - Who else is involved in a decision like this, and can anyone override it?
 - When this is solved, what changes for you personally?
@@ -141,10 +156,11 @@ Open questions to take to a buyer:
 
 ## Proof of Promise
 
+The proof is only what exists today.
+
 - **Every package is proven, not just listed.** `tribeos doctor` exercises all
   eleven foundation packages with a real call and fails loudly if any break.
-- **Built only on Apple's open-source Swift packages**, the same ones used
-  across the server-side Swift ecosystem. Versions are pinned in
+- **Built only on Apple's open-source Swift packages.** Versions are pinned in
   `Package.resolved`.
 - **100% Swift and AppleScript.** One package, one command, no GUI.
 - **Tested.** Every check is also a test.
@@ -152,8 +168,8 @@ Open questions to take to a buyer:
 
 ## Mental Response
 
-"This is solid ground. I can build on this, and what I build on it will
-stand."
+"This is solid ground, and it is native. I can build business software for
+the Mac on this, and it will stand."
 
 ## Physical Response
 
@@ -269,4 +285,13 @@ Scripts/install.sh
 1. **Foundation** (this build): package, eleven dependencies, `tribeos doctor`, the four connections declared, AppleScript bridge, install script.
 2. **The one SDK**: a Swift Snowflake client in `TribeOSCore`, proven against a live account from the terminal.
 3. **Through the rails**: bring governance (Cisco) and pipes (Red Hat, IBM) in through Snowflake.
-4. **Surface**: anything visible comes last, on top of `TribeOSCore`, built to the design law.
+4. **The suite**: connect SpiralERP and iWork on top of `TribeOSCore`.
+5. **The surface**: the B2B store and the developer platform, built last and to the design law.
+
+## Names and Affiliation
+
+TribeOS is an independent project. It is not affiliated with, sponsored by or
+endorsed by Apple, Microsoft, GitHub, Snowflake, Cisco, Red Hat or IBM. Their
+product names are used here only to describe a category ("Dynamics 365-class",
+"a GitHub for Apple") or a system TribeOS intends to connect to. All
+trademarks belong to their owners.
