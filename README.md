@@ -109,6 +109,32 @@ Status: the four and their paths are declared in code (`tribeos connections`)
 and guarded by tests. Nothing is wired to a live service yet, and how Cisco,
 Red Hat and IBM are bridged into Snowflake is still to be designed.
 
+## The Value Case
+
+How TribeOS is qualified with a buyer, following the ValueSelling formula:
+**Differentiated VisionMatch × Value × Power × Plan**. If any one is missing,
+the whole thing equals zero.
+
+| Element | The question | Where TribeOS stands |
+|---|---|---|
+| **Business Issue** | What time-bound, financial metric is the buyer measured on? | Hypothesis only: the cost of running AI on owned GPU infrastructure, and the cost of integrating many systems through many SDKs. Not yet confirmed by any buyer, and not yet a number. |
+| **Problems** | What stops them resolving it? | Every product connects to many systems through many SDKs. AI work is assumed to need a GPU estate of one's own. Foundations look finished and turn out hollow. |
+| **Solution** (differentiated) | What do they believe will fix it, that only we do well? | One rail, one SDK: everything runs through Snowflake. A closed list of four connections. A foundation where every part is proven live. |
+| **Value** | Is it worth it, to the business and to the person? | Business value: not quantified. It needs a real buyer's numbers. Personal value: being the steward whose ground the redwoods grow in. |
+| **Power** | Who can approve or veto? | Not identified. The brief's target is the builders, who are users and possible sponsors, not necessarily the people who sign. |
+| **Plan** | What are the agreed steps to value realized? | None. Nothing has been agreed with any buyer. |
+
+**Status: unqualified.** The VisionMatch is drafted but unconfirmed, and Value,
+Power and Plan are open, so the formula currently equals zero.
+
+Open questions to take to a buyer:
+
+- What is your number one priority this year, and what stands in its way?
+- What does your GPU infrastructure cost you today, and who owns that number?
+- How many systems does a new product have to integrate with, and through how many SDKs?
+- Who else is involved in a decision like this, and can anyone override it?
+- When this is solved, what changes for you personally?
+
 ## Promise of Brand
 
 **Be the soil. Grow redwoods.**
