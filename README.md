@@ -45,6 +45,39 @@ yet.
 | **A revitalised Xcode** | The tool all of the above is built with, made worth living in again | Vision |
 | **App Store Connect for iOS builders, Business Essentials for macOS** | The two ends of the same platform: publishing for the people who build, device and app management for the businesses that run | Vision |
 
+## The Platform
+
+Everything is cut and stripped for relaunch. Two platforms remain. AirPods,
+Apple TV, Vision and Home are out until they relaunch.
+
+| | **iOS** | **macOS** |
+|---|---|---|
+| **Market** | B2C | B2B |
+| **Apps** | Apps that do not need to talk to each other (Pinterest and Uber do not have to talk) | Apps that do (Bill and HubSpot have to talk) |
+| **Anchor** | App Store Connect | Business Essentials |
+| **Devices** | iPhone, iPad, iMac (the touch version of the Mac) | Mac, MacPad (the new HomePod: a touch point of sale for coffee-shop baristas), MacPad Touch (a duo for bartenders and waiters) |
+
+The device line-up is proposed. iMac as a touch Mac, MacPad and MacPad Touch
+are not existing Apple products.
+
+TribeOS sits under the macOS side, because that is where apps have to talk and
+so where a shared foundation is needed.
+
+## The Three Suites
+
+- **Microsoft Office** holds the corporate half of the economy.
+- **iWork** is for the other half: the roughly 35 million small and
+  medium-sized businesses.
+- **Google Workspace** sits between them as the middle layer, mediating
+  between a business's internal and external stakeholders.
+
+With those three in place and talking through one foundation, the layers
+businesses bolt on today to make their software cooperate (Okta for identity,
+Cloudflare for the edge, Zapier for glue) are no longer needed.
+
+This is the thesis, not the current state. iWork does not hold that half of
+the market today, and the figures are working estimates, not sourced numbers.
+
 ## The Thesis
 
 Integration and processing move down into the data layer.
@@ -87,6 +120,8 @@ measured by what grows on top of their work.
 - That a Swift project must be an app. TribeOS has no GUI in its foundation.
 - That the Mac is for creative work and business runs elsewhere.
 - That an "App Store" means consumer apps. The gap is business software.
+- That iOS and macOS are the same market. iOS is B2C, apps that stand alone;
+  macOS is B2B, apps that have to talk.
 - That the name "OS" means an operating system to install. It is a foundation
   to build on.
 
@@ -291,7 +326,8 @@ Scripts/install.sh
 ## Names and Affiliation
 
 TribeOS is an independent project. It is not affiliated with, sponsored by or
-endorsed by Apple, Microsoft, GitHub, Snowflake, Cisco, Red Hat or IBM. Their
+endorsed by Apple, Microsoft, Google, GitHub, Snowflake, Cisco, Red Hat, IBM
+or any other company named here. Their
 product names are used here only to describe a category ("Dynamics 365-class",
 "a GitHub for Apple") or a system TribeOS intends to connect to. All
 trademarks belong to their owners.
